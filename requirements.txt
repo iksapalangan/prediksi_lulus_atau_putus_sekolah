@@ -1,0 +1,9 @@
+streamlit
+pandas
+plotly.express
+scikit-learn
+train_test_split
+StandardScaler
+LabelEncoder
+RandomForestClassifier
+numpy
