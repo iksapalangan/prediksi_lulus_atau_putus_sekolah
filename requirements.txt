@@ -1,9 +1,5 @@
 streamlit
 pandas
-plotly.express
+plotly
 scikit-learn
-train_test_split
-StandardScaler
-LabelEncoder
-RandomForestClassifier
 numpy
