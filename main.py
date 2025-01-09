@@ -60,7 +60,8 @@ def create_prediction_inputs(feature_columns):
         if feature == 'Age at enrollment':
             prediction_inputs[feature] = st.sidebar.slider('Usia saat Mendaftar', 17, 70, 20)
         elif feature == 'Scholarship holder':
-            prediction_inputs[feature] = st.sidebar.selectbox('Penerima Beasiswa', [0, 1])
+            scholarship_status = st.sidebar.selectbox('Penerima Beasiswa', ['Tidak', 'Ya'])
+            prediction_inputs[feature] = 1 if scholarship_status == 'Ya' else 0
         elif feature == 'Previous qualification (grade)':
             prediction_inputs[feature] = st.sidebar.slider('Nilai Kualifikasi Sebelumnya', 0.0, 200.0, 120.0)
         elif feature == 'Admission grade':
@@ -74,9 +75,11 @@ def create_prediction_inputs(feature_columns):
         elif feature == 'Curricular units 2nd sem (approved)':
             prediction_inputs[feature] = st.sidebar.slider('Mata Kuliah Lulus Semester 2', 0, 10, 5)
         elif feature == 'Tuition fees up to date':
-            prediction_inputs[feature] = st.sidebar.selectbox('Status Pembayaran UKT', [0, 1])
+            payment_status = st.sidebar.selectbox('Status Pembayaran UKT', ['Belum Lunas', 'Lunas'])
+            prediction_inputs[feature] = 1 if payment_status == 'Lunas' else 0
         elif feature == 'Gender':
-            prediction_inputs[feature] = st.sidebar.selectbox('Jenis Kelamin', [0, 1])
+            gender = st.sidebar.selectbox('Jenis Kelamin', ['Laki-laki', 'Perempuan'])
+            prediction_inputs[feature] = 1 if gender == 'Perempuan' else 0
     
     return prediction_inputs
 
